@@ -8,16 +8,14 @@ export class HUDController {
             document.getElementById("hud");
 
         this.state = {
-
-            wind: 5,
-            moisture: 0,
-            fit: "Regular",
-
-            cooling: 82,
-            comfort: 88,
-            airflow: 74
-
-        };
+    wind: 5,
+    moisture: 0,
+    fit: "Regular",
+    perforation: "Plain",
+    cooling: 82,
+    comfort: 88,
+    airflow: 74
+};
 
         this.render();
 
