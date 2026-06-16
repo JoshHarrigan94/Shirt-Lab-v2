@@ -47,6 +47,15 @@ export class HUDController {
 
     }
 
+    setPerforation(type) {
+
+    this.state.perforation =
+        type;
+
+    this.render();
+
+}
+
     updateDerivedMetrics() {
 
         const windBonus =
@@ -142,6 +151,11 @@ export class HUDController {
                     this.state.airflow
                 )}
             </p>
+
+            <p>
+Perforation:
+${this.state.perforation}
+</p>
 
         `;
 
