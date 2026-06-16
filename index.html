@@ -227,79 +227,90 @@
 
     <!-- Toolbar -->
 
-    <div id="toolbar">
+    <button id="drawerToggle">
 
-        <!-- Camera -->
+☰ Controls
 
-        <button id="frontView">
-            Front
-        </button>
+</button>
 
-        <button id="sideView">
-            Side
-        </button>
+<div
+    id="controlsDrawer"
+    style="
+        display:none;
+        position:absolute;
+        left:20px;
+        top:120px;
+        width:280px;
+        background:black;
+        padding:16px;
+        border-radius:12px;
+        z-index:100;
+    "
+>
 
-        <button id="backView">
-            Back
-        </button>
+<h3>Environment</h3>
 
-        <!-- Fit -->
+<button id="windSlow">
+5mph
+</button>
 
-        <button id="compressionFit">
-            Compression
-        </button>
+<button id="windFast">
+15mph
+</button>
 
-        <button id="regularFit">
-            Regular
-        </button>
+<hr>
 
-        <button id="oversizedFit">
-            Oversized
-        </button>
+<h3>Fit</h3>
 
-        <!-- Wind -->
+<button id="compressionFit">
+Compression
+</button>
 
-        <button id="windSlow">
-            Wind 5mph
-        </button>
+<button id="regularFit">
+Regular
+</button>
 
-        <button id="windFast">
-            Wind 15mph
-        </button>
+<button id="oversizedFit">
+Oversized
+</button>
 
-        <!-- Moisture -->
+<hr>
 
-        <button id="dryBtn">
-            Dry
-        </button>
+<h3>Moisture</h3>
 
-        <button id="dampBtn">
-            Damp
-        </button>
+<button id="dryBtn">
+Dry
+</button>
 
-        <button id="soakedBtn">
-            Soaked
-        </button>
+<button id="dampBtn">
+Damp
+</button>
 
-        <!-- Perforation -->
+<button id="soakedBtn">
+Soaked
+</button>
 
-        <button id="noPerforation">
-            Plain
-        </button>
+<hr>
 
-        <button id="gridPerforation">
-            Grid
-        </button>
+<h3>Perforation</h3>
 
-        <button id="spinePerforation">
-            Spine Vent
-        </button>
+<button id="noPerforation">
+Plain
+</button>
 
-        <button id="mothTechPerforation">
-            MothTech
-        </button>
+<button id="gridPerforation">
+Grid
+</button>
 
-    </div>
+<button id="spinePerforation">
+Spine
+</button>
+
+<button id="mothTechPerforation">
+MothTech
+</button>
+
+</div>
 
 </div>
 
