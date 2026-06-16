@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>ShirtLab</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -17,8 +25,14 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background: #111;
-            font-family: Arial, Helvetica, sans-serif;
+
+            background: #0e1116;
+
+            font-family:
+                Inter,
+                Arial,
+                Helvetica,
+                sans-serif;
         }
 
         #app {
@@ -32,90 +46,276 @@
             height: 100%;
         }
 
+        /* -------------------------- */
+        /* HUD                        */
+        /* -------------------------- */
+
         #hud {
+
             position: absolute;
+
             top: 20px;
             left: 20px;
-            z-index: 10;
+
+            width: 280px;
+
+            background:
+                rgba(0,0,0,0.75);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(12px);
 
             color: white;
 
-            background: rgba(0,0,0,0.6);
+            border-radius: 16px;
 
-            padding: 16px;
-            border-radius: 12px;
+            padding: 18px;
 
-            min-width: 220px;
+            z-index: 100;
         }
 
         #hud h1 {
-            font-size: 18px;
-            margin-bottom: 10px;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
         }
 
         #hud p {
-            margin-bottom: 6px;
-            opacity: 0.85;
+
+            font-size: 14px;
+
+            opacity: 0.9;
+
+            margin-bottom: 8px;
+
         }
 
+        /* -------------------------- */
+        /* Toolbar                    */
+        /* -------------------------- */
+
         #toolbar {
+
             position: absolute;
+
             bottom: 20px;
             left: 20px;
 
             display: flex;
+            flex-wrap: wrap;
+
             gap: 10px;
 
-            z-index: 10;
+            max-width: 900px;
+
+            z-index: 100;
+
         }
 
         button {
-            border: none;
-            border-radius: 8px;
 
-            padding: 10px 14px;
+            border: none;
+
+            padding:
+                10px 14px;
+
+            border-radius: 10px;
+
+            background: white;
 
             cursor: pointer;
 
-            background: white;
+            font-weight: 600;
+
+            transition: 0.2s;
+
         }
 
         button:hover {
-            opacity: 0.9;
+
+            transform: translateY(-1px);
+
         }
+
+        /* -------------------------- */
+        /* Legend                     */
+        /* -------------------------- */
+
+        #legend {
+
+            position: absolute;
+
+            right: 20px;
+            top: 20px;
+
+            width: 240px;
+
+            background:
+                rgba(0,0,0,0.75);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(12px);
+
+            border-radius: 16px;
+
+            padding: 16px;
+
+            color: white;
+
+            z-index: 100;
+
+        }
+
+        #legend h2 {
+
+            font-size: 16px;
+
+            margin-bottom: 10px;
+
+        }
+
+        #legend p {
+
+            font-size: 13px;
+
+            opacity: 0.8;
+
+            margin-bottom: 6px;
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
 <div id="app">
 
+    <!-- Three.js Canvas -->
     <div id="viewport"></div>
 
+    <!-- HUD -->
     <div id="hud">
+
         <h1>ShirtLab</h1>
 
-        <p>Human Viewer</p>
-        <p>Status: Initialising...</p>
+        <p>Initialising...</p>
+
     </div>
 
+    <!-- Legend -->
+
+    <div id="legend">
+
+        <h2>Controls</h2>
+
+        <p>Camera Views</p>
+        <p>Fit Selection</p>
+        <p>Wind Speed</p>
+        <p>Moisture</p>
+        <p>Perforation Patterns</p>
+
+    </div>
+
+    <!-- Toolbar -->
+
     <div id="toolbar">
-        <button id="frontView">Front</button>
-        <button id="sideView">Side</button>
-        <button id="backView">Back</button>
+
+        <!-- Camera -->
+
+        <button id="frontView">
+            Front
+        </button>
+
+        <button id="sideView">
+            Side
+        </button>
+
+        <button id="backView">
+            Back
+        </button>
+
+        <!-- Fit -->
+
+        <button id="compressionFit">
+            Compression
+        </button>
+
+        <button id="regularFit">
+            Regular
+        </button>
+
+        <button id="oversizedFit">
+            Oversized
+        </button>
+
+        <!-- Wind -->
+
+        <button id="windSlow">
+            Wind 5mph
+        </button>
+
+        <button id="windFast">
+            Wind 15mph
+        </button>
+
+        <!-- Moisture -->
+
+        <button id="dryBtn">
+            Dry
+        </button>
+
+        <button id="dampBtn">
+            Damp
+        </button>
+
+        <button id="soakedBtn">
+            Soaked
+        </button>
+
+        <!-- Perforation -->
+
+        <button id="noPerforation">
+            Plain
+        </button>
+
+        <button id="gridPerforation">
+            Grid
+        </button>
+
+        <button id="spinePerforation">
+            Spine Vent
+        </button>
+
+        <button id="mothTechPerforation">
+            MothTech
+        </button>
+
     </div>
 
 </div>
 
+<!-- Three.js -->
+
 <script type="module">
 
-    import * as THREE from "https://unpkg.com/three@0.179.1/build/three.module.js";
+import * as THREE from
+"https://unpkg.com/three@0.179.1/build/three.module.js";
 
-    window.THREE = THREE;
+window.THREE = THREE;
 
-    import "./src/app/App.js";
+import "./src/app/App.js";
 
 </script>
 
 </body>
+
 </html>
