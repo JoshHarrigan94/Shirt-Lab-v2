@@ -34,7 +34,7 @@ export class PerforationRenderer {
                 ),
 
                 new THREE.MeshBasicMaterial({
-                    color: 0x111111
+                    color: 0x00ffff
                 })
 
             );
