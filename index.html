@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShirtLab V3</title>
+  <link rel="stylesheet" href="./src/ui/styles.css" />
+</head>
+<body>
+  <main id="app">
+    <section id="visual-stage" aria-label="ShirtLab visual wind tunnel">
+      <div id="curtains-canvas"></div>
+      <div class="stage-vignette"></div>
+      <div class="stage-grid"></div>
+
+      <div class="hero-frame">
+        <div class="figure-caption figure-human">Human load</div>
+        <div class="figure-caption figure-shirt">Garment response</div>
+        <div id="visual-engine-status" class="visual-engine-status">Visual engine: CSS fallback</div>
+        <div class="flow-axis flow-axis-left">Wind input</div>
+        <div class="flow-axis flow-axis-right">Cooling response</div>
+        <div id="wind-layer" class="wind-layer"></div>
+        <div id="heat-layer" class="heat-layer"></div>
+        <div id="cooling-layer" class="cooling-layer"></div>
+
+        <div class="athlete-wrap">
+          <div id="comparison-ghost" class="comparison-ghost">
+            <div class="ghost-shirt ghost-shirt-front"></div>
+            <div class="ghost-shirt ghost-shirt-rear"></div>
+            <div class="ghost-label">Other shirt in comparison</div>
+          </div>
+          <div class="athlete-shadow"></div>
+          <div class="athlete">
+            <div class="torso-base"></div>
+            <div class="head"></div>
+            <div class="neck"></div>
+            <div id="shirt-plane" class="shirt-plane plane">
+              <div class="shirt-sleeve shirt-sleeve-left"></div>
+              <div class="shirt-sleeve shirt-sleeve-right"></div>
+              <div class="shirt-outline"></div>
+              <div class="shirt-panel shirt-panel-front"></div>
+              <div class="shirt-panel shirt-panel-side"></div>
+              <div class="mesh-zone mesh-zone-left"></div>
+              <div class="mesh-zone mesh-zone-right"></div>
+              <div class="collar-cut"></div>
+              <div class="hem-line"></div>
+              <div id="perforation-layer" class="perforation-layer"></div>
+              <div id="moisture-layer" class="moisture-layer"></div>
+              <div id="vent-trails" class="vent-trails"></div>
+              <div class="thermal-lane thermal-core"></div>
+              <div class="thermal-lane thermal-side"></div>
+              <div class="shirt-label">SHIRTLAB</div>
+            </div>
+            <div class="arm arm-left"></div>
+            <div class="arm arm-right"></div>
+            <div class="leg leg-left"></div>
+            <div class="leg leg-right"></div>
+          </div>
+        </div>
+
+        <div id="stage-readout" class="stage-readout">
+          <div>
+            <span>Wind</span>
+            <strong id="stage-wind">9 mph</strong>
+          </div>
+          <div>
+            <span>Moisture</span>
+            <strong id="stage-moisture">controlled</strong>
+          </div>
+          <div>
+            <span>Heat</span>
+            <strong id="stage-heat">elevated</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-title">
+        <p>Garment Intelligence Platform</p>
+        <h1>See airflow, sweat and comfort trade-offs as one shared system.</h1>
+      </div>
+
+      <div id="stage-subtitle" class="stage-subtitle">Shirt A active on stage.</div>
+    </section>
+
+    <button id="controls-toggle" class="drawer-toggle left">☰ Controls</button>
+    <button id="results-toggle" class="drawer-toggle right">Results ▸</button>
+
+    <aside id="controls-drawer" class="drawer controls open">
+      <div class="drawer-header">
+        <h2>Controls</h2>
+        <p>Change the shared simulation state.</p>
+      </div>
+      <div id="controls-root"></div>
+    </aside>
+
+    <aside id="results-drawer" class="drawer results open">
+      <div class="drawer-header">
+        <h2>Output</h2>
+        <p>Maths summary from the same state.</p>
+      </div>
+      <div id="hud-root"></div>
+    </aside>
+
+    <div id="boot-panel" class="boot-panel"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/curtainsjs@8.1.3/dist/curtains.umd.min.js"></script>
+  <script type="module" src="./src/app/App.js"></script>
+</body>
+</html>

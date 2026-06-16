@@ -1,30 +1,63 @@
 # ShirtLab V3
 
-A static GitHub Pages-ready prototype for a cinematic sportswear wind-tunnel interface.
+ShirtLab V3 is a static GitHub Pages-ready garment intelligence demo.
 
-This version intentionally separates:
+It combines:
 
-- **Visual experience**: Curtains.js/shader-inspired visual layer, CSS wind, wetness, perforation masks and fabric movement.
-- **Maths scoring**: lightweight heuristic engine for cooling, airflow, comfort, drying, wetness, cling and value.
-- **Shared state**: one state object drives both visuals and metrics.
+1. A cinematic visual layer
+2. A lightweight heuristic score layer
+3. A weighted ontology and explanation layer
+4. A shared simulation state that keeps visuals, controls, scores, and reasoning aligned
 
-## Run
+This is not a CFD simulator. It is a premium sportswear concept sandbox designed to make airflow, sweat, and performance trade-offs legible.
 
-Open `index.html` directly or upload the repo root to GitHub Pages.
+## Run locally
 
-No npm, no node_modules, no build step.
+Open `index.html` directly in a browser.
 
-## Structure
+No npm.
+No build step.
+No backend.
 
-```text
-src/app/App.js
-src/state/SimulationState.js
-src/visual/
-src/engine/
-src/data/
-src/ui/
-```
+## Deploy to GitHub Pages
 
-## Product direction
+1. Push the repository to GitHub.
+2. In the repository settings, open `Pages`.
+3. Set the source to deploy from the default branch root.
+4. Publish the site from `/ (root)`.
 
-ShirtLab is not pretending to be CFD. It is a visual decision interface for comparing shirts, materials, perforations, environment and athlete intensity.
+Because the app is fully static, `index.html` is the entry point and the `src/` modules load directly in the browser.
+
+## Main architecture
+
+- `src/state/SimulationState.js`
+- `src/visual/`
+- `src/engine/`
+- `src/data/`
+- `src/ontology/`
+- `src/ui/`
+
+## Current pass highlights
+
+- visual hero upgrade with clearer shirt silhouette, wind flow, wetness zoning, and perforation storytelling
+- subtle visual-engine status indicator for `Curtains active` vs `CSS fallback`
+- comparison-aware hero presentation
+- demo preset shortcuts for premium cotton vs poly, hot humid, cool windy, high sweat, and DIY punched-hole tests
+- repo cleanup for GitHub Pages hygiene
+
+## Key docs
+
+- `docs/ARCHITECTURE.md`
+- `docs/DESIGN_INTELLIGENCE.md`
+- `docs/GARMENT_DNA.md`
+- `docs/ROADMAP.md`
+
+## Constraints
+
+- no `node_modules`
+- no `package.json`
+- no build tooling
+- no backend
+- no paid API dependency
+
+Curtains is CDN-loaded and the app is designed to fall back gracefully when that visual engine is unavailable.
